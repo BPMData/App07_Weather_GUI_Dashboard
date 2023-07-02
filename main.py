@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import streamlit as st
+import pandas as pd
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+st.title("Weather Forecast for the Next Days")
+place = st.text_input("For which place would you like to know the weather?",
+                      placeholder="Enter place name here")
+days = st.slider("Number of Days to Forecast", min_value=1, max_value=5,
+                 help="Select the number of days you'd like to know the weather forecast for.")
 
+option = st.selectbox("Select type of data to view", ("Temperature", "Atmospheric Conditions"))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+if place:
+    if days == 1:
+        st.subheader(f"{option} for {place} tomorrow")
+    else:
+        st.subheader(f"{option} for {place} for the next {days} days")
+else:
+    st.subheader("")
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
