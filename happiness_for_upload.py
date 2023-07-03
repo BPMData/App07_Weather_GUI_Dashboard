@@ -24,13 +24,11 @@ yselect = st.selectbox(label=":orange[Select the data for the Y-axis]", key="sec
                      options=("GDP", "Happiness", "Generosity"), index=1)
 yselect2 = yselect.casefold()
 
-st.write(yselect)
-
 xaxis = df[f"{xselect2}"]
 yaxis = df[f"{yselect2}"]
 
 
-figure2 = px.scatter(x=xaxis, y=yaxis, labels={"x": f"{xselect}",
+figure = px.scatter(x=xaxis, y=yaxis, labels={"x": f"{xselect}",
                                               "y": f"{yselect}"},
                     title=f"{yselect} plotted against {xselect} for 145 Selected Countries",
                     hover_name=df["country"])
@@ -40,7 +38,7 @@ figure2 = px.scatter(x=xaxis, y=yaxis, labels={"x": f"{xselect}",
 # Here's another interesting streamlit article:
 # https://andymcdonaldgeo.medium.com/uploading-and-reading-files-with-streamlit-92885ac3a1b6
 
-figure2.update_layout(
+figure.update_layout(
     title={
         'x': 0.5,
         'xanchor': 'center',
@@ -54,6 +52,6 @@ figure2.update_layout(
     }
 )
 
-st.plotly_chart(figure2)
+st.plotly_chart(figure)
 
 st.info("Note: You can hover over any data point to see which country it comes from!")
