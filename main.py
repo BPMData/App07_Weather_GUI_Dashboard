@@ -12,9 +12,9 @@ option = st.selectbox(options=("Temperature", "Atmospheric Conditions"), label="
 
 if place:
     if days == 1:
-        st.subheader(f"{option} for {place} tomorrow")
+        st.subheader(f"{option} for {place.title()} tomorrow")
     else:
-        st.subheader(f"{option} for {place} for the next {days} days")
+        st.subheader(f"{option} for {place.title()} for the next {days} days")
 else:
     st.subheader("")
 
@@ -32,3 +32,4 @@ d,t = get_data(days)
 figure = px.scatter(x=d, y=t, labels={"x": "Date", "y": "Tempertures (F)"})  #Notice labels accepts a DICTIONARY as its input.
 
 st.plotly_chart(figure)
+
