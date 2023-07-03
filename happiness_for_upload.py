@@ -30,13 +30,6 @@ xaxis = df[f"{xselect2}"]
 yaxis = df[f"{yselect2}"]
 
 
-figure1 = px.scatter(x=xaxis, y=yaxis, labels={"x": f"{xselect}",
-                                              "y": f"{yselect}"},
-                    title=f"{yselect} plotted against {xselect} for 145 Selected Countries",
-                    color=df["country"])  #Notice labels accepts a DICTIONARY as its input.
-# This works but is kinda hacky.
-
-# Below is better:
 figure2 = px.scatter(x=xaxis, y=yaxis, labels={"x": f"{xselect}",
                                               "y": f"{yselect}"},
                     title=f"{yselect} plotted against {xselect} for 145 Selected Countries",
