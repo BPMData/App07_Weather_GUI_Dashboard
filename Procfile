@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run happiness_for_upload.py

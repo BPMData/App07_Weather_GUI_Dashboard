@@ -10,7 +10,7 @@ import plotly.express as px
 #
 # df = pd.read_csv(uploaded_file)
 
-df = pd.read_csv("https://docs.google.com/spreadsheets/d/1-6OpEodPNKwpKhT0-fkmTxqJSmKDmMCi0B7A7G5QgUE/edit?usp=sharing")
+df = pd.read_csv("https://raw.githubusercontent.com/BPMData/App07_Weather_GUI_Dashboard/2dbc1282bd5bedf5b042b12c1ab8085be776f10d/data/happy.csv")
 
 st.title("Correlations Between Happiness and Various National Statistics")
 
@@ -62,3 +62,5 @@ figure2.update_layout(
 )
 
 st.plotly_chart(figure2)
+
+st.info("Note: You can hover over any data point to see which country it comes from!")
