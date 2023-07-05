@@ -104,14 +104,14 @@ def get_data_properly(lat,lon,days=None):
 def get_geo(city=None, state=None, country=None):
     country_code = None
     state_code = None
-    if state is not None:
+    if state is not "":
         state = state.title()
         print(state)
         state_code = state_converter[state]
         print(state_code)
     else:
         state_code = ""
-    if country is not None:
+    if country is not "":
         country = country.upper()
         print(country)
         country_code = better_country_converter[country]
@@ -120,6 +120,6 @@ def get_geo(city=None, state=None, country=None):
         country_code = ""
     url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{state_code},{country_code}&limit=1&appid={weather_key}"
     response = requests.get(url)
-    data = response.json()
-    needed = (data[0]["lat"], data[0]["lon"])
-    return needed
+    rawdata = response.json()
+    needed = (rawdata[0]["lat"], rawdata[0]["lon"])
+    return rawdata, needed
